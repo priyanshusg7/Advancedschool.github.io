@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Learning</title>
+
+<style>
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+}
+
+.navbar a { text-decoration: none; }
+
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: rgba(255,46,99,0.2);
+  box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  transform: scale(1.08);
+}
+
+/* BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0f0c29;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* BACKGROUNDS */
+.bg1 { background-image: url("smart 1.png"); }   /* 👈 NEW HERO IMAGE */
+.bg2 { background-image: url("smart 2.png"); }
+
+/* HERO (now image instead of video) */
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.parallax::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+}
+
+/* TEXT */
+.glow {
+  font-size: 80px;
+  color: white;
+  z-index: 1;
+  text-shadow:
+    0 0 10px #cd721d,
+    0 0 20px #ee9300,
+    0 0 40px #9d4edd;
+}
+
+.content {
+  padding: 100px 30px;
+  background: #1a1a2e;
+  text-align: center;
+}
+
+.content h2 {
+  color: #ff2e63;
+  margin-bottom: 20px;
+}
+
+.content p {
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.8;
+  font-size: 22px;
+  color: #ddd;
+  text-align: justify;
+}
+
+/* IMAGE ROW */
+.img-row {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.img-row img {
+  width: 45%;
+  border-radius: 15px;
+}
+
+/* ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.9s;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html"><div class="nav-btn">Home</div></a>
+  <a href="smart-learning.html"><div class="nav-btn">Smart Learning</div></a>
+  <a href="classroom.html"><div class="nav-btn">Classroom</div></a>
+  <a href="labs.html"><div class="nav-btn">Labs</div></a>
+  <a href="transport.html"><div class="nav-btn">Transport</div></a>
+  <a href="sports.html"><div class="nav-btn">Sports</div></a>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="parallax bg1">
+  <h1 class="glow">How Smart Learning Happens</h1>
+</div>
+
+<!-- INTRO -->
+<div class="content reveal">
+  <h2>How Smart Learning Happens</h2>
+  <p>
+    Smart learning transforms classrooms into engaging spaces where students actively
+    understand concepts instead of memorizing them. It focuses on participation,
+    flexibility, and real-life application.
+
+    Students learn at their own pace while still working together, creating a balance
+    between personal growth and teamwork.
+
+    This makes education more effective, interesting, and better suited for the future.
+  </p>
+</div>
+
+<!-- ONLY TOPIC -->
+<div class="parallax bg2">
+  <h1 class="glow">Adaptive Classrooms</h1>
+</div>
+
+<div class="content reveal">
+  <h2>Adaptive Classrooms</h2>
+  <p>
+    Adaptive classrooms adjust teaching methods based on how students respond.
+    Teachers can change speed, style, and explanations to match student understanding.
+
+    This ensures that every student gets proper support and no one is left behind,
+    making learning smoother and more effective.
+  </p>
+
+  <div class="img-row">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+  </div>
+</div>
+
+<script>
+function revealOnScroll() {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+window.addEventListener("scroll", revealOnScroll);
+</script>
+
+</body>
+</html>

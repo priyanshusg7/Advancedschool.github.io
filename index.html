@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future School 2040</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 200vh;
+  background: black;
+  overflow-x: hidden;
+}
+/* Moving light overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,46,99,0.15), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(157,78,221,0.15), transparent 40%);
+  animation: moveLight 12s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes moveLight {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-5%, -5%); }
+  100% { transform: translate(0,0); }
+}
+/* Cinematic video motion */
+video {
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+/* VIDEO BACKGROUND */
+video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  z-index: -2;
+}
+
+/* PARTICLE CANVAS */
+#particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* SCROLL TEXT */
+.scroll-hint {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+  color: #ff2e63;
+  font-size: 3rem;
+  animation: fade 1.5s infinite alternate;
+}
+
+@keyframes fade {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+/* OVERLAY SCREEN */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, #1a1a2e, #0f0c29);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* TITLE WITH GLITCH EFFECT */
+.title {
+  font-size: 5rem;
+  margin-bottom: 40px;
+  color: #ff2e63;
+  text-shadow: 0 0 10px #ff2e63, 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff2e63, -2px -2px #9d4edd; }
+  50% { text-shadow: -2px 2px #9d4edd, 2px -2px #ff2e63; }
+  100% { text-shadow: 2px -2px #ff2e63, -2px 2px #9d4edd; }
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* BUTTON STYLE */
+button {
+  padding: 12px 24px;
+  border: 1px solid #ff2e63;
+  background: transparent;
+  color: #ff2e63;
+  font-size: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255, 46, 99, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+}
+
+/* MAGNETIC HOVER EFFECT */
+button:hover {
+  background: #ff2e63;
+  color: white;
+  transform: translateY(-5px) scale(1.07);
+  box-shadow: 0 0 10px #ff2e63, 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+}
+
+/* SHOW BUTTONS */
+button.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PAGE FADE TRANSITION */
+.fade-out {
+  animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(1.05) rotateY(10deg);
+    filter: blur(4px);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  button {
+    width: 160px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<video id="video" src="lol\schlala.mp4" muted playsinline preload="auto"></video>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- SCROLL TEXT -->
+<div class="scroll-hint" id="hint">Scroll to begin ↓</div>
+
+<!-- FINAL SCREEN -->
+<div class="overlay" id="overlay">
+  <div class="title">LEARNING MEETS IMMERSIVE EXPERIENCE</div>
+ <div class="buttons">
+  <a href="smart-learning.html"><button>Smart Learning</button></a>
+  <a href="classroom.html"><button>Classroom</button></a>
+  <a href="labs.html"><button>Labs</button></a>
+  <a href="transport.html"><button>Transport</button></a>
+  <a href="sports.html"><button>Sports</button></a>
+  
+</div>
+</div>
+
+<script>
+const video = document.getElementById("video");
+const hint = document.getElementById("hint");
+const overlay = document.getElementById("overlay");
+const buttons = document.querySelectorAll("button");
+
+let started = false;
+
+/* START VIDEO ON SCROLL */
+window.addEventListener("scroll", () => {
+  if (!started) {
+    video.play().catch(() => {});
+    hint.style.opacity = 0;
+    started = true;
+  }
+});
+
+/* SHOW OVERLAY AFTER VIDEO */
+video.addEventListener("ended", () => {
+  overlay.style.opacity = 1;
+  buttons.forEach((btn, i) => {
+    setTimeout(() => {
+      btn.classList.add("show");
+    }, i * 200);
+  });
+});
+
+/* SMOOTH PAGE SWITCH */
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    const href = this.getAttribute("href");
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+      window.location.href = href;
+    }, 600);
+  });
+});
+
+/* PARTICLE SYSTEM */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = Array.from({length: 120}, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 2,
+  dx: (Math.random() - 0.5) * 0.5,
+  dy: (Math.random() - 0.5) * 0.5
+}));
+
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "#ff2e63";
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+    p.x += p.dx; p.y += p.dy;
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+<audio id="bgSound" loop>
+  <source src="wowow.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const sound = document.getElementById("bgSound");
+let soundStarted = false;
+
+function startSound() {
+  if (!soundStarted) {
+    sound.volume = 0.25; // soft sound
+    sound.play().catch(()=>{});
+    soundStarted = true;
+  }
+}
+
+window.addEventListener("scroll", startSound);
+window.addEventListener("click", startSound);
+</script>
+</body>
+</html>

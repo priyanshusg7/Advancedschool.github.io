@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Transport 2040</title>
+
+<style>
+
+/* ===== FLOATING NAV BAR ===== */
+.navbar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  box-shadow: 0 0 12px rgba(255,46,99,0.2);
+}
+
+.nav-btn:hover {
+  background: rgba(255,46,99,0.2);
+  box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  transform: scale(1.08);
+}
+
+/* ACTIVE PAGE BUTTON */
+.nav-btn.active {
+  background: rgba(255,46,99,0.35);
+  box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  transform: scale(1.08);
+}
+
+/* ABOUT BUTTON SPECIAL */
+.about-btn {
+  border-color: #9d4edd;
+  color: #9d4edd;
+  box-shadow: 0 0 12px rgba(157, 78, 221, 0.4);
+}
+
+.about-btn:hover {
+  background: rgba(157, 78, 221, 0.25);
+  box-shadow: 0 0 20px #9d4edd, 0 0 40px #ff2e63;
+}
+
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0f0c29;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== BACKGROUNDS ===== */
+.bg1 { background-image: url("Copilot_20260417_233800.png"); }
+.bg2 { background-image: url("Gemini_Generated_Image_pcw802pcw802pcw8.png"); }
+.bg3 { background-image: url("metr.jpeg"); }
+.bg4 { background-image: url("aaaaa.png"); }
+.bg5 { background-image: url("Copilot_20260418_000240.png"); }
+.bg6 { background-image: url("Gemini_Generated_Image_q5lfkrq5lfkrq5lf.png"); }
+
+/* ===== VIDEO HERO ===== */
+.video-hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.video-hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+}
+
+/* ===== PARALLAX ===== */
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.parallax::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+}
+
+/* ===== TEXT ===== */
+.glow {
+  font-size: 50px;
+  color: #ffffff;
+  text-shadow:
+    0 0 10px #ffdc42,
+    0 0 20px #ffe712,
+    0 0 40px #c2f300;
+  z-index: 1;
+}
+
+.content {
+  padding: 100px 30px;
+  background: #1a1a2e;
+  text-align: center;
+}
+
+.content h1 {
+  color: #ff2e63;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff2e63;
+}
+
+.content p {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #ddd;
+  font-size: 22px;
+  text-align: justify;
+}
+
+/* ===== ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== PARTICLES ===== */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html"><div class="nav-btn">Home</div></a>
+  <a href="smart-learning.html"><div class="nav-btn">Smart Learning</div></a>
+  <a href="classroom.html"><div class="nav-btn">Classroom</div></a>
+  <a href="labs.html"><div class="nav-btn">Labs</div></a>
+  <a href="transport.html"><div class="nav-btn">Transport</div></a>
+  <a href="sports.html"><div class="nav-btn">Sports</div></a>
+  <a href="about.html"><div class="nav-btn about-btn">About Us</div></a>
+</div>
+
+<!-- VIDEO -->
+<div class="video-hero">
+  <video autoplay muted loop playsinline>
+    <source src="saas.mp4" type="video/mp4">
+  </video>
+  <h1 class="glow">Smart Transport 🚀</h1>
+</div>
+
+<!-- INTRO -->
+<div class="content reveal">
+  <h1>Transportation System</h1>
+  <p>
+    Transport systems redefine how students travel to and from school, ensuring safety, efficiency, and sustainability.
+    Autonomous electric buses equipped with smart navigation panels and AI-driven traffic management provide smooth, eco-friendly rides.<br><br>
+
+    Smart roads embedded with sensors and digital indicators guide vehicles, while solar-powered traffic lights and charging stations keep the system energy-efficient.<br><br>
+
+    Real-time tracking allows parents and teachers to monitor routes, ensuring student safety at every step. With features like biometric entry, automated scheduling, and adaptive speed control, these systems minimize delays and maximize comfort.
+  </p>
+</div>
+
+<!-- SECTIONS -->
+<div class="parallax bg2"><h1 class="glow">AI Traffic System</h1></div>
+
+<div class="content reveal">
+  <h1>AI Traffic Control</h1>
+  <p>
+    AI Traffic Control systems manage traffic flow using sensors and predictive algorithms, ensuring safer and faster commutes while reducing congestion and emissions.By analyzing data from cameras, sensors, and traffic signals in real time, the system can adjust signal timings, detect congestion, and reduce delays automatically. It can also identify accidents or rule violations and help authorities respond quickly. AI traffic control improves road safety, reduces traffic jams, saves fuel, and creates a smoother and more efficient transportation system for cities.
+  </p>
+</div>
+
+<div class="parallax bg3"><h1 class="glow">High-Speed Metro</h1></div>
+
+<div class="content reveal">
+  <h1>Advanced Metro Network</h1>
+  <p>
+    AI-driven metros offer fast, safe, and eco-friendly transportation with smart scheduling and real-time monitoring.
+  </p>
+</div>
+
+<div class="parallax bg4"><h1 class="glow">Self-Driving Vehicles</h1></div>
+
+<div class="content reveal">
+  <h1>Autonomous Transport</h1>
+  <p>
+    Self-driving vehicles provide safe, efficient, and intelligent transport using advanced sensors and AI navigation.
+  </p>
+</div>
+
+<div class="parallax bg5"><h1 class="glow">Smart Roads</h1></div>
+
+<div class="content reveal">
+  <h1>Future Road Systems</h1>
+  <p>
+    Smart roads use sensors and AI to manage traffic, improve safety, and support sustainable mobility.
+  </p>
+</div>
+
+<div class="parallax bg6"><h1 class="glow">Travel Smarter 🌍</h1></div>
+
+<!-- JS -->
+<script>
+function revealOnScroll() {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+/* particles */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = Array.from({length: 120}, () => ({
+  x: Math.random()*canvas.width,
+  y: Math.random()*canvas.height,
+  r: Math.random()*2,
+  dx:(Math.random()-0.5)*0.5,
+  dy:(Math.random()-0.5)*0.5
+}));
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#ff2e63";
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+    p.x+=p.dx; p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width)p.dx*=-1;
+    if(p.y<0||p.y>canvas.height)p.dy*=-1;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* active nav */
+const links=document.querySelectorAll(".navbar a");
+const currentPage=window.location.pathname.split("/").pop();
+
+links.forEach(link=>{
+  if(link.getAttribute("href")===currentPage){
+    link.querySelector(".nav-btn").classList.add("active");
+  }
+});
+</script>
+
+</body>
+</html>

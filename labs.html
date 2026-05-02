@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Labs 2040</title>
+
+<style>
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  box-shadow: 0 0 12px rgba(255,46,99,0.2);
+}
+
+.nav-btn:hover {
+  background: rgba(255,46,99,0.2);
+  box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  transform: scale(1.08);
+}
+
+.nav-btn.active {
+  background: rgba(255,46,99,0.35);
+  box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  transform: scale(1.08);
+}
+
+/* ABOUT BUTTON */
+.about-btn {
+  border-color: #9d4edd;
+  color: #9d4edd;
+  box-shadow: 0 0 12px rgba(157, 78, 221, 0.4);
+}
+
+.about-btn:hover {
+  background: rgba(157, 78, 221, 0.25);
+  box-shadow: 0 0 20px #9d4edd, 0 0 40px #ff2e63;
+}
+
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0f0c29;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== BACKGROUNDS ===== */
+.bg1 { background-image: url("labababab.png"); }
+.bg2 { background-image: url("Copilot_20260424_122216.png"); }
+.bg3 { background-image: url("Copilot_20260424_123309.png"); }
+.bg4 { background-image: url("Copilot_20260418_222514.png"); }
+.bg5 { background-image: url("ai lab.png"); }
+
+/* ===== VIDEO HERO ===== */
+.video-hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.video-hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+}
+
+.video-hero .glow {
+  z-index: 2;
+}
+
+/* ===== PARALLAX ===== */
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.parallax::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+}
+
+/* ===== TEXT ===== */
+.glow {
+  font-size: 50px;
+  color: #00f7ff;
+  text-shadow:
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff,
+    0 0 40px #00c3ff;
+}
+
+.content {
+  padding: 100px 30px;
+  background: #1a1a2e;
+  text-align: center;
+}
+
+.content h2 {
+  color: #00f7ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+.content p {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #ddd;
+  font-size: 22px;
+  text-align: justify;
+}
+
+/* ===== ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html"><div class="nav-btn">Home</div></a>
+  <a href="smart-learning.html"><div class="nav-btn">Smart Learning</div></a>
+  <a href="classroom.html"><div class="nav-btn">Classroom</div></a>
+  <a href="labs.html"><div class="nav-btn">Labs</div></a>
+  <a href="transport.html"><div class="nav-btn">Transport</div></a>
+  <a href="sports.html"><div class="nav-btn">Sports</div></a>
+  <a href="about.html"><div class="nav-btn about-btn">About Us</div></a>
+</div>
+
+<!-- VIDEO -->
+<div class="video-hero">
+  <video autoplay muted loop playsinline>
+    <source src="Firefly animate this picture, the robot teacher should be explaining students and the students shoul.mp4" type="video/mp4">
+  </video>
+  <h1 class="glow">Future Labs 🧪</h1>
+</div>
+
+<!-- INTRO -->
+<div class="content reveal">
+  <h2>Labs</h2>
+  <p>
+    Labs are innovation hubs where students experiment, explore, and create using cutting-edge technology. Equipped with AI-powered tools, robotics, and immersive simulations, they transform learning into a hands-on experience.
+
+    Virtual environments allow students to explore complex concepts safely, while smart systems provide real-time feedback and insights.
+
+    These labs encourage creativity, problem-solving, and innovation—preparing students for a rapidly evolving future.
+  </p>
+</div>
+
+<!-- SECTIONS -->
+<div class="parallax bg2"><h1 class="glow">Robotics Lab</h1></div>
+
+<div class="content reveal">
+  <h2>AI & Robotics</h2>
+  <p>
+    Robotics and AI automate complex tasks, helping students focus on innovation and experimentation.AI-powered robots and tools help make learning more interactive by assisting with demonstrations, answering questions, and supporting practical activities. AI enables these machines to understand instructions, recognize patterns, and adapt to different situations, while robotics gives them the ability to move and interact with the real world. Together, AI and robotics bring advanced technology into classrooms, encouraging creativity, problem-solving, and hands-on learning for students.
+  </p>
+</div>
+
+<div class="parallax bg3"><h1 class="glow">Smart Chemistry</h1></div>
+
+<div class="content reveal">
+  <h2>Digital Chemistry Lab</h2>
+  <p>
+    Smart chemistry labs allow safe, interactive experiments using simulations and sensors.Instead of relying only on physical chemicals and glassware, students can explore reactions, mix substances, and observe results on a digital screen with accurate visual models and instant feedback. This approach reduces risks, saves materials, and allows experiments to be repeated easily for better understanding. A digital chemistry lab makes complex concepts clearer, supports practical learning, and brings technology into science education in an effective way.
+  </p>
+</div>
+
+<div class="parallax bg4"><h1 class="glow">Holographic Experiments</h1></div>
+
+<div class="content reveal">
+  <h2>3D Lab Experience</h2>
+  <p>
+    3D labs let students visualize and interact with complex systems in immersive environments.Through 3D visuals, learners can observe equipment, materials, and reactions from every angle, making complex procedures easier to follow and safer to practice. Students can repeat experiments, explore outcomes, and learn from mistakes without wasting resources or facing risks. This technology enhances practical learning, improves understanding of scientific concepts, and makes laboratory education more engaging, accessible, and effective.
+  </p>
+</div>
+
+<div class="parallax bg5"><h1 class="glow">Experiment the Future 🔬</h1></div>
+
+<script>
+function revealOnScroll() {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+const links = document.querySelectorAll(".navbar a");
+const currentPage = window.location.pathname.split("/").pop();
+
+links.forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.querySelector(".nav-btn").classList.add("active");
+  }
+});
+</script>
+
+</body>
+</html>

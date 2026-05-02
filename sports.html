@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Sports 2040</title>
+
+<style>
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  box-shadow: 0 0 12px rgba(255,46,99,0.2);
+}
+
+.nav-btn:hover {
+  background: rgba(255,46,99,0.2);
+  box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  transform: scale(1.08);
+}
+
+.nav-btn.active {
+  background: rgba(255,46,99,0.35);
+  box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
+  transform: scale(1.08);
+}
+
+/* ABOUT BUTTON POLISH */
+.about-btn {
+  border-color: #9d4edd;
+  color: #9d4edd;
+  box-shadow: 0 0 12px rgba(157, 78, 221, 0.4);
+}
+
+.about-btn:hover {
+  background: rgba(157, 78, 221, 0.25);
+  box-shadow: 0 0 20px #9d4edd, 0 0 40px #ff2e63;
+}
+
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0f0c29;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== BACKGROUNDS ===== */
+.bg1 { background-image: url("Copilot_20260418_215445.png"); }
+.bg2 { background-image: url("sasadadadad.png"); }
+.bg3 { background-image: url("Gemini_Generated_Image_lyozbtlyozbtlyoz.png"); }
+.bg4 { background-image: url("Gemini_Generated_Image_rt03o7rt03o7rt03.png"); }
+.bg5 { background-image: url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d'); }
+
+/* ===== VIDEO HERO ===== */
+.video-hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.video-hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+}
+
+.video-hero .glow {
+  z-index: 2;
+}
+
+/* ===== PARALLAX ===== */
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.parallax::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+}
+
+/* ===== TEXT ===== */
+.glow {
+  font-size: 50px;
+  color: #ffffff;
+  text-shadow:
+    0 0 10px #e8ab01,
+    0 0 20px #77630a,
+    0 0 40px #ffea00;
+}
+
+.content {
+  padding: 100px 30px;
+  background: #1a1a2e;
+  text-align: center;
+}
+
+.content h2 {
+  color: #ff2e63;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff2e63;
+}
+
+.content p {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #ddd;
+  font-size: 22px;
+  text-align: justify;
+}
+
+/* ===== ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html"><div class="nav-btn">Home</div></a>
+ <a href="smart-learning.html"><div class="nav-btn">Smart Learning</div></a>
+  <a href="classroom.html"><div class="nav-btn">Classroom</div></a>
+  <a href="labs.html"><div class="nav-btn">Labs</div></a>
+  <a href="transport.html"><div class="nav-btn">Transport</div></a>
+  <a href="sports.html"><div class="nav-btn">Sports</div></a>
+  <a href="about.html"><div class="nav-btn about-btn">About Us</div></a>
+</div>
+
+<!-- VIDEO -->
+<div class="video-hero">
+  <video autoplay muted loop playsinline>
+    <source src="Firefly animate this picture, the robot teacher teaching students and also students completing their.mp4" type="video/mp4">
+  </video>
+  <h1 class="glow">Future Sports ⚡</h1>
+</div>
+
+<!-- INTRO -->
+<div class="content reveal">
+  <h2>Sports</h2>
+  <p>
+    Sports redefine physical education by blending athletic performance with cutting-edge technology. In futuristic arenas, athletes train using AI-powered systems, smart wearables, and real-time analytics that enhance performance.
+
+    Virtual and augmented reality allow students to practice skills in immersive environments, while intelligent systems provide feedback and track improvement.
+
+    By combining innovation with teamwork, modern sports help students push boundaries, build discipline, and prepare for a tech-driven future.
+  </p>
+</div>
+
+<!-- SECTIONS -->
+<div class="parallax bg2"><h1 class="glow">AI Coaching</h1></div>
+
+<div class="content reveal">
+  <h2>AI-Powered Coaching</h2>
+  <p>
+    AI coaching analyzes performance data in real time, helping athletes improve technique, avoid injuries, and train smarter.
+  </p>
+</div>
+
+<div class="parallax bg3"><h1 class="glow">Smart Wearables</h1></div>
+
+<div class="content reveal">
+  <h2>Wearable Technology</h2>
+  <p>
+    Wearables track health, movement, and focus, helping students stay fit and improve performance.
+  </p>
+</div>
+
+<div class="parallax bg4"><h1 class="glow">Virtual Training</h1></div>
+
+<div class="content reveal">
+  <h2>Virtual Practice</h2>
+  <p>
+    VR-based training allows students to practice in immersive environments and improve skills safely.
+  </p>
+</div>
+
+<div class="parallax bg5"><h1 class="glow">Train Smarter 🏆</h1></div>
+
+<script>
+function revealOnScroll() {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+const links = document.querySelectorAll(".navbar a");
+const currentPage = window.location.pathname.split("/").pop();
+
+links.forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.querySelector(".nav-btn").classList.add("active");
+  }
+});
+</script>
+
+</body>
+</html>
