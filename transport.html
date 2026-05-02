@@ -6,8 +6,6 @@
 <title>Smart Transport 2040</title>
 
 <style>
-
-/* ===== FLOATING NAV BAR ===== */
 .navbar {
   position: fixed;
   top: 20px;
@@ -39,14 +37,12 @@
   transform: scale(1.08);
 }
 
-/* ACTIVE PAGE BUTTON */
 .nav-btn.active {
   background: rgba(255,46,99,0.35);
   box-shadow: 0 0 20px #ff2e63, 0 0 40px #9d4edd;
   transform: scale(1.08);
 }
 
-/* ABOUT BUTTON SPECIAL */
 .about-btn {
   border-color: #9d4edd;
   color: #9d4edd;
@@ -58,7 +54,6 @@
   box-shadow: 0 0 20px #9d4edd, 0 0 40px #ff2e63;
 }
 
-/* ===== BASE ===== */
 * {
   margin: 0;
   padding: 0;
@@ -72,7 +67,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== BACKGROUNDS ===== */
 .bg1 { background-image: url("Copilot_20260417_233800.png"); }
 .bg2 { background-image: url("Gemini_Generated_Image_pcw802pcw802pcw8.png"); }
 .bg3 { background-image: url("metr.jpeg"); }
@@ -80,7 +74,6 @@ body {
 .bg5 { background-image: url("Copilot_20260418_000240.png"); }
 .bg6 { background-image: url("Gemini_Generated_Image_q5lfkrq5lfkrq5lf.png"); }
 
-/* ===== VIDEO HERO ===== */
 .video-hero {
   height: 100vh;
   position: relative;
@@ -109,7 +102,6 @@ body {
   z-index: -1;
 }
 
-/* ===== PARALLAX ===== */
 .parallax {
   height: 100vh;
   background-attachment: fixed;
@@ -129,7 +121,6 @@ body {
   background: rgba(0,0,0,0.55);
 }
 
-/* ===== TEXT ===== */
 .glow {
   font-size: 50px;
   color: #ffffff;
@@ -161,7 +152,6 @@ body {
   text-align: justify;
 }
 
-/* ===== ANIMATION ===== */
 .reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -173,7 +163,6 @@ body {
   transform: translateY(0);
 }
 
-/* ===== PARTICLES ===== */
 #particles {
   position: fixed;
   top: 0;
@@ -187,7 +176,6 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
 </style>
 </head>
 
@@ -195,7 +183,6 @@ html {
 
 <canvas id="particles"></canvas>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <a href="index.html"><div class="nav-btn">Home</div></a>
   <a href="smart-learning.html"><div class="nav-btn">Smart Learning</div></a>
@@ -206,7 +193,6 @@ html {
   <a href="about.html"><div class="nav-btn about-btn">About Us</div></a>
 </div>
 
-<!-- VIDEO -->
 <div class="video-hero">
   <video autoplay muted loop playsinline>
     <source src="saas.mp4" type="video/mp4">
@@ -214,20 +200,16 @@ html {
   <h1 class="glow">Smart Transport 🚀</h1>
 </div>
 
-<!-- INTRO -->
 <div class="content reveal">
   <h1>Transportation System</h1>
   <p>
     Transport systems redefine how students travel to and from school, ensuring safety, efficiency, and sustainability.
     Autonomous electric buses equipped with smart navigation panels and AI-driven traffic management provide smooth, eco-friendly rides.<br><br>
-
     Smart roads embedded with sensors and digital indicators guide vehicles, while solar-powered traffic lights and charging stations keep the system energy-efficient.<br><br>
-
     Real-time tracking allows parents and teachers to monitor routes, ensuring student safety at every step. With features like biometric entry, automated scheduling, and adaptive speed control, these systems minimize delays and maximize comfort.
   </p>
 </div>
 
-<!-- SECTIONS -->
 <div class="parallax bg2"><h1 class="glow">AI Traffic System</h1></div>
 
 <div class="content reveal">
@@ -266,7 +248,6 @@ html {
 
 <div class="parallax bg6"><h1 class="glow">Travel Smarter 🌍</h1></div>
 
-<!-- JS -->
 <script>
 function revealOnScroll() {
   document.querySelectorAll(".reveal").forEach(el => {
@@ -278,7 +259,6 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 
-/* particles */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -307,7 +287,6 @@ function draw(){
 }
 draw();
 
-/* active nav */
 const links=document.querySelectorAll(".navbar a");
 const currentPage=window.location.pathname.split("/").pop();
 
