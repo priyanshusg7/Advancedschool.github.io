@@ -6,7 +6,6 @@
 <title>Future School 2040</title>
 
 <style>
-
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +18,7 @@ body {
   background: black;
   overflow-x: hidden;
 }
-/* Moving light overlay */
+
 body::before {
   content: "";
   position: fixed;
@@ -36,7 +35,7 @@ body::before {
   50% { transform: translate(-5%, -5%); }
   100% { transform: translate(0,0); }
 }
-/* Cinematic video motion */
+
 video {
   animation: slowZoom 20s ease-in-out infinite alternate;
 }
@@ -45,7 +44,7 @@ video {
   from { transform: scale(1); }
   to { transform: scale(1.08); }
 }
-/* VIDEO BACKGROUND */
+
 video {
   position: fixed;
   top: 0; left: 0;
@@ -55,7 +54,6 @@ video {
   z-index: -2;
 }
 
-/* PARTICLE CANVAS */
 #particles {
   position: fixed;
   top: 0; left: 0;
@@ -64,7 +62,6 @@ video {
   z-index: -1;
 }
 
-/* SCROLL TEXT */
 .scroll-hint {
   position: fixed;
   bottom: 40px;
@@ -80,7 +77,6 @@ video {
   to { opacity: 1; }
 }
 
-/* OVERLAY SCREEN */
 .overlay {
   position: fixed;
   top: 0; left: 0;
@@ -96,7 +92,6 @@ video {
   transition: opacity 1s ease;
 }
 
-/* TITLE WITH GLITCH EFFECT */
 .title {
   font-size: 3rem;
   margin-bottom: 100px;
@@ -111,7 +106,6 @@ video {
   100% { text-shadow: 2px -2px #ff2e63, -2px 2px #9d4edd; }
 }
 
-/* BUTTONS */
 .buttons {
   display: flex;
   gap: 20px;
@@ -119,7 +113,6 @@ video {
   justify-content: center;
 }
 
-/* BUTTON STYLE */
 button {
   padding: 12px 24px;
   border: 1px solid #ff2e63;
@@ -135,7 +128,6 @@ button {
   position: relative;
 }
 
-/* MAGNETIC HOVER EFFECT */
 button:hover {
   background: #ff2e63;
   color: white;
@@ -143,13 +135,11 @@ button:hover {
   box-shadow: 0 0 10px #ff2e63, 0 0 20px #ff2e63, 0 0 40px #9d4edd;
 }
 
-/* SHOW BUTTONS */
 button.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* PAGE FADE TRANSITION */
 .fade-out {
   animation: fadeOut 0.6s forwards;
 }
@@ -162,7 +152,6 @@ button.show {
   }
 }
 
-/* MOBILE */
 @media (max-width: 600px) {
   .title {
     font-size: 2rem;
@@ -177,26 +166,21 @@ button.show {
 
 <body>
 
-<!-- VIDEO -->
 <video id="video" src="lol\schlala.mp4" muted playsinline preload="auto"></video>
 
-<!-- PARTICLES -->
 <canvas id="particles"></canvas>
 
-<!-- SCROLL TEXT -->
 <div class="scroll-hint" id="hint">Scroll to begin ↓</div>
 
-<!-- FINAL SCREEN -->
 <div class="overlay" id="overlay">
   <div class="title">LEARNING MEETS IMMERSIVE EXPERIENCE</div>
- <div class="buttons">
-  <a href="smart-learning.html"><button>Smart Learning</button></a>
-  <a href="classroom.html"><button>Classroom</button></a>
-  <a href="labs.html"><button>Labs</button></a>
-  <a href="transport.html"><button>Transport</button></a>
-  <a href="sports.html"><button>Sports</button></a>
-  
-</div>
+  <div class="buttons">
+    <a href="smart-learning.html"><button>Smart Learning</button></a>
+    <a href="classroom.html"><button>Classroom</button></a>
+    <a href="labs.html"><button>Labs</button></a>
+    <a href="transport.html"><button>Transport</button></a>
+    <a href="sports.html"><button>Sports</button></a>
+  </div>
 </div>
 
 <script>
@@ -207,7 +191,6 @@ const buttons = document.querySelectorAll("button");
 
 let started = false;
 
-/* START VIDEO ON SCROLL */
 window.addEventListener("scroll", () => {
   if (!started) {
     video.play().catch(() => {});
@@ -216,7 +199,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* SHOW OVERLAY AFTER VIDEO */
 video.addEventListener("ended", () => {
   overlay.style.opacity = 1;
   buttons.forEach((btn, i) => {
@@ -226,7 +208,6 @@ video.addEventListener("ended", () => {
   });
 });
 
-/* SMOOTH PAGE SWITCH */
 document.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
@@ -238,7 +219,6 @@ document.querySelectorAll("a").forEach(link => {
   });
 });
 
-/* PARTICLE SYSTEM */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -272,6 +252,7 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
 });
 </script>
+
 <audio id="bgSound" loop>
   <source src="wowow.mp3" type="audio/mp3">
 </audio>
@@ -282,7 +263,7 @@ let soundStarted = false;
 
 function startSound() {
   if (!soundStarted) {
-    sound.volume = 0.25; // soft sound
+    sound.volume = 0.25;
     sound.play().catch(()=>{});
     soundStarted = true;
   }
@@ -291,5 +272,6 @@ function startSound() {
 window.addEventListener("scroll", startSound);
 window.addEventListener("click", startSound);
 </script>
+
 </body>
 </html>
